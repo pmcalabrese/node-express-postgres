@@ -7,11 +7,11 @@ var client = new pg_1.Client({
     database: 'app',
     port: 5433
 });
+client.connect();
 var index = express_1.Router();
 /* GET home page. */
 index.get('/', function (request, response, next) {
     // res.render('index', { title: 'Visual Studio Code!' });
-    client.connect();
     client.query('SELECT $1::text as message', ['Hello world Postgres!'], function (err, res) {
         console.log("---->", res);
         response.render('index', { title: res.rows[0].message });

@@ -4,15 +4,15 @@ const client = new Client({
   host: 'localhost',
   database: 'app',
   port: 5433
-})
+});
+
+client.connect();
 
 const index: Router = Router();
 
 /* GET home page. */
 index.get('/', function(request, response, next) {
   // res.render('index', { title: 'Visual Studio Code!' });
-  
-  client.connect();
   
   client.query('SELECT $1::text as message', ['Hello world Postgres!'], (err, res) => {
     console.log("---->", res);
