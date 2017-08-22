@@ -4,7 +4,7 @@ const users:Router = Router();
 
 /* GET users listing. */
 users.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('respond with Marco');
 });
 
 export default users;
